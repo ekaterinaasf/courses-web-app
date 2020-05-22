@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>courses web-app</title>
 
-<head>
-  <meta charset="utf-8" />
-  <title>courses web-app</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-  <link rel="stylesheet" href="./style.css">
+  <body>
+    <form id="courses_form">
+      <input id="course_name" name="course_name" placeholder="course name" />
+      <button id="save-button">save file</button>
+    </form>
+    <details open>
+      <summary>List of courses</summary>
+      <div id="list_container"></div>
+    </details>
 
-  <script type="module">
-    import { init } from './app/init.js'
-    window.onload = init;
-  </script>
-</head>
-
-<body>
-
-</body>
-
+    <script type="module">
+      import { init } from "./app/init.js";
+      window.onload = init;
+    </script>
+  </body>
 </html>
