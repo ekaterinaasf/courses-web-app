@@ -1,3 +1,1 @@
-{ id: 1, name: 'course1'},
-{ id: 2, name: 'course2'},
-{ id: 3, name: 'course3'},
+[{"id":1,"name":"updated name"},{"id":2,"name":"course2"},{"id":3,"name":"course3"},{"id":4,"name":"testCourceTitle"},{"id":5,"name":"testCourceTitle2"}]

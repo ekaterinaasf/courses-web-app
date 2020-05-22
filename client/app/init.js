@@ -1,15 +1,15 @@
-const renderFilesList = (filesArr) => {
-  const filesList = filesArr
-    .map((fileName) => {
+function renderFilesList(list) {
+  const filesList = [list]
+    .map((el) => {
       const loadButton = document.createElement("button");
-      loadButton.innerHTML = fileName.name;
-      loadButton.onclick = () => fetchAndLoadCourse(fileName);
+      loadButton.innerHTML = el.name;
+      loadButton.onclick = () => fetchAndLoadCourse(el.id);
 
       const deleteButton = document.createElement("button");
       deleteButton.innerHTML = "X";
-      deleteButton.onclick = () => deleteFile(fileName);
+      deleteButton.onclick = () => deleteFile(el.id);
 
-      const li = document.createElement("li", fileName.name);
+      const li = document.createElement("li", el.name);
       li.appendChild(loadButton);
       li.appendChild(deleteButton);
       return li;
@@ -24,7 +24,7 @@ const renderFilesList = (filesArr) => {
   // const list = document.createElement("ol");
   // list.appendChild(filesList);
   container.appendChild(filesList);
-};
+}
 
 const fetchAndLoadCourse = (id) =>
   fetch("/api/courses/" + encodeURIComponent(id))
@@ -76,7 +76,7 @@ const deleteFile = (id) => {
       alert("file is deleted");
     })
     .catch((err) => {
-      alert("unable to delete file");
+      alert("unable to delete the course");
       console.error(err);
     });
 };
@@ -93,12 +93,13 @@ export const init = async () => {
     const res = await fetch("/courses", {
       method: "POST",
       body: JSON.stringify({
-        name: document.getElementById("course_name").value,
+        name: document.getElementById("name").value,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     });
+    console.log(document.getElementById("name").value);
     const data = await res.json();
     renderFilesList(data);
     console.log(data);

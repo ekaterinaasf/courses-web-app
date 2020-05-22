@@ -1,6 +1,9 @@
 Refactor this https://github.com/ekaterinaasf/RESTproject
 from Web-Apps week1 project
 
+//echo '{body:{"name": "courseForTest"}}' | curl --data @- -X POST http://127.0.0.1:8080/api/courses
+curl -d '{headers: {"Content-type": "application/json; charset=UTF-8" }, body: {"name": "courseForTest"}}' -X POST http://127.0.0.1:8080/api/courses
+
 const Joi = require('joi');
 const express = require('express');
 const app = express();
